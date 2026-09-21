@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080808">
+  <meta name="description" content="JIGGA SHOP — independent streetwear concept.">
+  <title>JIGGA SHOP — Streetwear</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="loader">
+    <div class="loader-logo">JIGGA<span>SHOP</span></div>
+    <div class="loader-line"><i></i></div>
+    <small>LOADING THE DROP</small>
+  </div>
+
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+  <div class="noise"></div>
+
+  <nav class="nav">
+    <a class="brand magnetic" href="#top">
+      <span class="brand-mark"><img src="assets/jigga-logo.jpg" alt=""></span>
+      <span>JIGGA SHOP</span>
+    </a>
+    <div class="nav-links">
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+    </div>
+    <button class="bag magnetic" id="bagButton">Bag <b id="bagCount">0</b></button>
+  </nav>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-bg"><img src="assets/jigga-logo.jpg" alt=""></div>
+      <div class="hero-grid"></div>
+
+      <div class="hero-content reveal">
+        <div class="eyebrow">JIGGA SHOP / EST. 2026</div>
+        <h1><span>JIGGA</span><span>SHOP</span></h1>
+        <p>Quiet silhouettes. Loud identity. A small uniform for people who don't need a logo screaming for attention.</p>
+        <a class="cta magnetic" href="#shop">ENTER THE SHOP <span>↘</span></a>
+      </div>
+
+      <div class="scroll-mark">SCROLL <span>↓</span></div>
+      <div class="hero-number">001 / 026</div>
+    </section>
+
+    <div class="marquee">
+      <div>JIGGA SHOP&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;BUILT FOR THE EVERYDAY&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;JIGGA SHOP&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;BUILT FOR THE EVERYDAY&nbsp;&nbsp;&nbsp; / &nbsp;&nbsp;&nbsp;</div>
+    </div>
+
+    <section class="section shop" id="shop">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">01 / Collection</div>
+          <h2>THE FIRST<br>DROP.</h2>
+        </div>
+        <p>Two pieces. One attitude. Black foundation, sharp type and graphics that do the talking.</p>
+      </div>
+
+      <div class="products">
+        <article class="product-card reveal champion-card">
+          <div class="product-image champion-gallery awaiting-swipe" data-slide="0" aria-label="Swipe to reveal Champion shirt">
+            <div class="champion-slide active" data-color="White" data-view="Front" role="img" aria-label="Champion shirt"></div>
+            <div class="swipe-censor" aria-live="polite">soon...</div>
+            <div class="product-tag">01 / CROPPED</div>
+            <div class="view">SWIPE<br>↔</div>
+            <div class="gallery-counter" aria-live="polite">WHITE / FRONT</div>
+          </div>
+          <div class="product-info">
+            <div>
+              <h3>CHAMPION</h3>
+              <p>Champion cropped t-shirt</p>
+            </div>
+            <strong>₸ 16,500</strong>
+          </div>
+          <div class="size-selector" aria-label="Choose Champion size">
+            <span>SIZE</span>
+            <div>
+              <button class="size-option" data-size="XS" aria-pressed="false">XS</button>
+              <button class="size-option" data-size="S" aria-pressed="false">S</button>
+              <button class="size-option selected" data-size="M" aria-pressed="true">M</button>
+              <button class="size-option" data-size="L" aria-pressed="false">L</button>
+              <button class="size-option" data-size="XL" aria-pressed="false">XL</button>
+            </div>
+          </div>
+          <button class="add magnetic" data-product="CHAMPION">ADD TO BAG <span>+</span></button>
+        </article>
+
+        <article class="product-card reveal">
+          <div class="product-image">
+            <img src="assets/drugs-kill-jigg.jpg" alt="DRUGS KILL JIGG regular slim t-shirt">
+            <div class="product-tag">02 / REGULAR SLIM</div>
+            <div class="view">VIEW<br>↗</div>
+          </div>
+          <div class="product-info">
+            <div>
+              <h3>DRUGS KILL JIGG</h3>
+              <p>Regular slim t-shirt</p>
+            </div>
+            <strong>₸ 14,500</strong>
+          </div>
+          <div class="size-selector" aria-label="Choose Drugs Kill Jigg size">
+            <span>SIZE</span>
+            <div>
+              <button class="size-option" data-size="XS" aria-pressed="false">XS</button>
+              <button class="size-option" data-size="S" aria-pressed="false">S</button>
+              <button class="size-option selected" data-size="M" aria-pressed="true">M</button>
+              <button class="size-option" data-size="L" aria-pressed="false">L</button>
+              <button class="size-option" data-size="XL" aria-pressed="false">XL</button>
+            </div>
+          </div>
+          <button class="add magnetic" data-product="DRUGS KILL JIGG">ADD TO BAG <span>+</span></button>
+        </article>
+      </div>
+    </section>
+
+    <section class="statement">
+      <div class="statement-word reveal">JIGGA</div>
+      <div class="statement-copy reveal">
+        <div class="eyebrow">02 / Philosophy</div>
+        <h2>LESS NOISE.<br>MORE CHARACTER.</h2>
+        <p>JIGGA SHOP is a streetwear concept built around clean typography, sharp proportions and pieces that feel intentional without trying too hard.</p>
+        <a class="text-link magnetic" href="#about">DISCOVER THE BRAND <span>↗</span></a>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="about-left reveal">
+        <div class="eyebrow">03 / JIGGA SHOP</div>
+        <h2>DESIGNED<br>IN BLACK.<br>WORN<br>EVERYWHERE.</h2>
+      </div>
+      <div class="about-right reveal">
+        <div class="rule"></div>
+        <p>Small drops. Focused graphics. No unnecessary decoration.</p>
+        <p>The first collection keeps the palette tight and lets the silhouette and typography carry the identity.</p>
+        <div class="coordinates">51.1694° N<br>71.4491° E</div>
+      </div>
+    </section>
+  </main>
+
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+  <aside class="cart-panel" id="cartPanel" aria-hidden="true" aria-labelledby="cartTitle">
+    <div class="cart-head">
+      <div>
+        <div class="eyebrow">YOUR ORDER</div>
+        <h2 id="cartTitle">THE BAG.</h2>
+      </div>
+      <button class="cart-close" id="cartClose" aria-label="Close bag">×</button>
+    </div>
+    <div class="cart-items" id="cartItems"></div>
+    <div class="cart-empty" id="cartEmpty">Your bag is empty.<br>Start with the first drop.</div>
+    <div class="cart-foot">
+      <div class="cart-total"><span>TOTAL</span><strong id="cartTotal">₸ 0</strong></div>
+      <button class="cart-checkout" id="cartCheckout" disabled>CHECKOUT <span>↗</span></button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast">ADDED TO BAG <span>✓</span></div>
+
+  <footer>
+    <span>© 2026 JIGGA SHOP</span>
+    <span>ASTANA / KZ</span>
+    <span class="footer-contact">CONTACT <a href="tel:+77055094727">+7 (705) 509-47-27</a><a href="tel:+77478361111">+7 (747) 836-11-11</a></span>
+    <span>NOISE DOWN / CHARACTER UP</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
