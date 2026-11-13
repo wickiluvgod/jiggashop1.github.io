@@ -57,12 +57,28 @@ const cartBackdrop = document.getElementById("cartBackdrop");
 const cartItems = document.getElementById("cartItems");
 const cartEmpty = document.getElementById("cartEmpty");
 const cartTotal = document.getElementById("cartTotal");
+const cartShipping = document.getElementById("cartShipping");
 const cartCheckout = document.getElementById("cartCheckout");
+const whatsappNumber = document.getElementById("whatsappNumber");
+const shippingCost = 2000;
 const products = {
-  "CHAMPION": { name: "CHAMPION", description: "Cropped t-shirt", price: 16500 },
-  "DRUGS KILL JIGG": { name: "DRUGS KILL JIGG", description: "Regular slim t-shirt", price: 14500 }
+  "CHAMPION": { name: "CHAMPION", description: "Cropped t-shirt", price: 12500 },
+  "DRUGS KILL JIGG": { name: "DRUGS KILL JIGG", description: "Regular slim t-shirt", price: 13500 }
 };
+const cartStorageKey = "jigga-shop-cart";
+const availableSizes = new Set(["XS", "S", "M", "L", "XL"]);
 const bag = {};
+
+try {
+  const savedBag = JSON.parse(localStorage.getItem(cartStorageKey) || "{}");
+  Object.values(savedBag).forEach(item => {
+    const product = Object.values(products).find(candidate => candidate.name === item.name);
+    if (!product || !availableSizes.has(item.size) || !Number.isInteger(item.quantity) || item.quantity < 1) return;
+    const key = `${product.name}-${item.size}`;
+    bag[key] = { ...product, key, size: item.size, quantity: item.quantity };
+  });
+} catch {
+}
 
 function formatPrice(price) {
   return `₸ ${price.toLocaleString("en-US")}`;
@@ -71,9 +87,14 @@ function formatPrice(price) {
 function renderCart() {
   const items = Object.values(bag);
   const itemCount = items.reduce((total, item) => total + item.quantity, 0);
-  const total = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const shipping = items.length ? shippingCost : 0;
+  try {
+    localStorage.setItem(cartStorageKey, JSON.stringify(bag));
+  } catch {}
   count.textContent = itemCount;
-  cartTotal.textContent = formatPrice(total);
+  cartShipping.textContent = formatPrice(shipping);
+  cartTotal.textContent = formatPrice(subtotal + shipping);
   cartEmpty.hidden = items.length > 0;
   cartItems.innerHTML = items.map(item => `
     <div class="cart-item">
@@ -102,6 +123,18 @@ function toggleCart(open) {
 document.getElementById("bagButton").addEventListener("click", () => toggleCart(true));
 document.getElementById("cartClose").addEventListener("click", () => toggleCart(false));
 cartBackdrop.addEventListener("click", () => toggleCart(false));
+cartCheckout.addEventListener("click", () => {
+  const items = Object.values(bag);
+  if (!items.length) return;
+  const subtotal = items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const shipping = shippingCost;
+  const total = subtotal + shipping;
+  const orderLines = items.map(item =>
+    `${item.quantity} x ${item.name} (${item.description}, size ${item.size}) - ${formatPrice(item.price * item.quantity)}`
+  );
+  const message = encodeURIComponent(`Hi, I'd like to place an order from JIGGA SHOP:\n\n${orderLines.join("\n")}\nShipping: ${formatPrice(shipping)}\nTotal: ${formatPrice(total)}`);
+  window.open(`https://wa.me/${whatsappNumber.value}?text=${message}`, "_blank", "noopener,noreferrer");
+});
 document.addEventListener("keydown", event => {
   if (event.key === "Escape") toggleCart(false);
 });
